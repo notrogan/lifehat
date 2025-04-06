@@ -101,7 +101,7 @@ async function getDust() : Promise<Record<string, any>[]> {
   color: #ffffff95;
   font-size: 1.75rem;
   text-align: center;
-  font-family: "rivian";
+  font-family: "rivian", 'aileron-bold';
 }
 
 circle {
@@ -130,6 +130,13 @@ svg {
 @font-face {
   font-family: 'rivian-bold';
   src: url('../../font/Halbfett.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'aileron-bold';
+  src: url('../../font/Aileron.otf');
   font-weight: normal;
   font-style: normal;
 }

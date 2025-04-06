@@ -22,15 +22,15 @@
             <IonGrid>
               <IonRow>
                 <IonCol>
-                  <div class="day">MON</div>
+                  <div class="day"> {{ dotDayFirst }} </div>
                   <div class="dot"></div>
                 </IonCol>
                 <IonCol>
-                  <div class="day">TUE</div>
+                  <div class="day"> {{ dotDaySecond }}</div>
                   <div class="dot2"></div>
                 </IonCol>
                 <IonCol>
-                  <div class="day">WED</div>
+                  <div class="day"> {{  dotDayThird }}</div>
                   <div class="dot3"></div>
                 </IonCol>
               </IonRow>
@@ -57,15 +57,15 @@
             <IonGrid>
               <IonRow>
                 <IonCol>
-                  <div class="day">MON</div>
+                  <div class="day"> {{ dotDayFirst }} </div>
                   <div class="dot"></div>
                 </IonCol>
                 <IonCol>
-                  <div class="day">TUE</div>
+                  <div class="day"> {{ dotDaySecond }}</div>
                   <div class="dot2"></div>
                 </IonCol>
                 <IonCol>
-                  <div class="day">WED</div>
+                  <div class="day"> {{  dotDayThird }}</div>
                   <div class="dot3"></div>
                 </IonCol>
               </IonRow>
@@ -117,6 +117,24 @@ let gasAverage = ref(0);
 const date = new Date()
 
 time = `${date.toLocaleString('en-US', { month: 'short' })} ${date.toLocaleString('en-US', { day: '2-digit' })} ${date.getHours()}:00, local time`;
+
+const tomorrow = new Date(Date.now() + 1000 * 3600 * 24);
+
+let dotDayFirst = "";
+dotDayFirst = tomorrow.toLocaleString('en-US', { weekday: 'short' }).toUpperCase();
+
+const afterTomorrow = new Date(Date.now() + 1000 * 3600 * 24 * 2);
+
+let dotDaySecond = "";
+dotDaySecond = afterTomorrow.toLocaleString('en-US', { weekday: 'short' }).toUpperCase();
+
+const afterAfterTomorrow = new Date(Date.now() + 1000 * 3600 * 24 * 3);
+
+let dotDayThird = "";
+dotDayThird = afterAfterTomorrow.toLocaleString('en-US', { weekday: 'short' }).toUpperCase();
+
+
+
 
 onMounted(() => {
   setInterval(getStatus, 1000);
@@ -338,6 +356,5 @@ async function getForecast() : Promise<Record<string, any>[]> {
   font-weight: normal;
   font-style: normal;
 }
-
 
 </style>
